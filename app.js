@@ -7,6 +7,12 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var disneyRouter = require('./routes/disney');
+const {
+  timeLog
+} = require('console');
+const {
+  Server
+} = require('http');
 
 var app = express();
 
@@ -25,19 +31,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/disney', disneyRouter);
+app.use('/viva/a', disneyRouter);
 
 app.all('/secret', function (req, res, next) {
 
-  console.log('...secret...');
+  console.log(`shh...Ti's secret...`);
   next();
 
 })
-app.get('/viva/a', function (req, res, next) {
-  console.log('...viva...');
-  next();
-}, function (req, res) {
-  res.json('...a...');
-})
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
