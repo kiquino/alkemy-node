@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/disney', disneyRouter);
-app.use('/viva/a', disneyRouter);
+
 
 app.all('/secret', function (req, res, next) {
 
