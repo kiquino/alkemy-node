@@ -53,7 +53,26 @@ a {
   font-weight: 400;
 }
 
-ul li {
+.content ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.content ul li {
   list-style: none;
+  background-color: #00B7FF;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  margin: 1rem;
+}
+
+.content ul li a {
+  color: white;
+  font-weight: bold;
 }
 /*# sourceMappingURL=style.css.map */

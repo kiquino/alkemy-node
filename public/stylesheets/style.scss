@@ -38,10 +38,22 @@ a {
         font-weight: 400;
 
     }
-}
 
-ul {
-    li {
-        list-style: none;
+    ul {
+        li {
+            list-style: none;
+            background-color: #00B7FF;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            margin: 1rem;
+
+            a {
+                color: white;
+                font-weight: bold;
+            }
+        }
+
+        display: flex;
+        flex-direction: row;
     }
 }
