@@ -52,4 +52,8 @@ a {
   font-size: 1.5rem;
   font-weight: 400;
 }
+
+ul li {
+  list-style: none;
+}
 /*# sourceMappingURL=style.css.map */

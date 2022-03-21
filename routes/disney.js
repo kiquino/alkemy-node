@@ -13,18 +13,22 @@ app.get('/', function (req, res) {
 
     })
 });
-app.get('/auth/login', function (req, res) {
+app.get('/login', function (req, res) {
     res.render('loginRegistro', {
         title: 'Login',
         method: 'POST',
         action: ''
     });
 })
-app.get('/auth/register', function (req, res) {
+
+app.get('/register', function (req, res) {
     res.render('loginRegistro', {
         title: 'Registro',
         method: 'POST',
-        action: ''
+        action: '../../auth/register'
     });
+})
+app.get('/characters', function (req, res) {
+
 })
 module.exports = app;
