@@ -1,7 +1,12 @@
 let express = require('express');
+const {
+    redirect
+} = require('express/lib/response');
 let app = express.Router();
 let jsonwebtoken = require('jsonwebtoken');
+let LocalStorage = require('node-localstorage').LocalStorage;
 
+let localStorage = new LocalStorage('./scratch');
 const {
     userdb
 } = require('../../db');
@@ -23,12 +28,11 @@ app.post('/', async (req, res) => {
         }, 'secretcodesh', {
             expiresIn: '1h'
         })
-        res.json({
-            message: 'Login correcto',
-            token: token
-        })
 
-    }else{
+        localStorage.setItem('token', token);
+        res.redirect('/../api/characters');
+
+    } else {
         res.render('loginRegistro', {
             title: 'login',
             method: 'POST',
@@ -36,12 +40,12 @@ app.post('/', async (req, res) => {
             mensaje: 'Usuario o contraseña incorrectos'
         })
     }
-        
-    
 
 
 
-    console.log(findUser + "esto es el resultado de su busqueda");
+
+
+
 
 })
 
