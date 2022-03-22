@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var disneyRouter = require('./routes/disney');
 var authRouter = require('./routes/auth');
+var CharacterRouter = require('./routes/api/characters');
 
 const {
   timeLog
@@ -37,6 +38,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/disney', disneyRouter);
 app.use('/auth', authRouter);
+app.use('/api/characters', CharacterRouter );
 
 
 app.all('/secret', function (req, res, next) {

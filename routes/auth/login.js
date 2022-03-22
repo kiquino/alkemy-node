@@ -1,5 +1,6 @@
 let express = require('express');
 let app = express.Router();
+let jsonwebtoken = require('jsonwebtoken');
 
 const {
     userdb
@@ -16,11 +17,23 @@ app.post('/', async (req, res) => {
         }
     })
 
-    if (findUser) {
-        res.json(findUser);
-    }else{
+    if (findUser.length > 0) {
+        const token = jsonwebtoken.sign({
+            data: findUser
+        }, 'secretcodesh', {
+            expiresIn: '1h'
+        })
         res.json({
-            message: 'Usuario no encontrado'
+            message: 'Login correcto',
+            token: token
+        })
+
+    }else{
+        res.render('loginRegistro', {
+            title: 'login',
+            method: 'POST',
+            action: '../../auth/login',
+            mensaje: 'Usuario o contraseña incorrectos'
         })
     }
         
