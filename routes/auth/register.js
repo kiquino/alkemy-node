@@ -8,13 +8,28 @@ app.post('/', async (req, res) => {
     let email = req.body.email;
     let contraseña = req.body.password;
 
+    const findSameUser = await userdb.findAll({
+        where: {email: email}
 
-    const usuario = await userdb.create({
-        email: email,
-        contraseña: contraseña,
-
+        
     })
-    res.json(usuario);
+    if (findSameUser.length > 0){
+        res.json({
+            message: 'El usuario ya existe'
+        })
+    }else{
+
+        const usuario = await userdb.create({
+            email: email,
+            contraseña: contraseña,
+    
+        })
+        res.json(usuario);
+    }
+      
+    
+   
+
 })
 
 

@@ -16,8 +16,8 @@ app.get('/', function (req, res) {
 app.get('/login', function (req, res) {
     res.render('loginRegistro', {
         title: 'Login',
-        method: 'POST',
-        action: ''
+        method: 'post',
+        action: '../../auth/login'
     });
 })
 
