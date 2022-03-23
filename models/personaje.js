@@ -7,7 +7,7 @@ module.exports = (sequelize, type) => {
             allowNull: false
         },
         imagen: {
-            type: type.STRING,
+            type: type.STRING(300),
             allowNull: true,
             defaultValue: null
         },
@@ -27,7 +27,7 @@ module.exports = (sequelize, type) => {
 
         },
         historia: {
-            type: type.STRING,
+            type: type.TEXT,
             allowNull: true,
             defaultValue: null
         },

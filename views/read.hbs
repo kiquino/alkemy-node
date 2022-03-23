@@ -1,0 +1,18 @@
+<div class="header">
+    <h1>{{title}}</h1>
+</div>
+<div id="info" class="contenedor">
+    <h2>{{nombre}}</h2>
+    <img src="{{imagen}}" alt="">
+    <p>{{historia}}</p>
+    <ul>{{#each peliculas}}
+
+        <li>{{titulo}}</li>
+        <br>
+
+        {{/each}}
+    </ul>
+    <a class="update" href="../update/{{id}}">update</a>
+</div>
+
+<a href="../">Volver</a>

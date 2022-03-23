@@ -3,7 +3,7 @@
 </div>
 <div class="content">
     <p>{{message}}</p>
-    <div class="buscador">
+    {{!-- <div class="buscador">
         <form action="" method="get">
             <label for="name">Nombre:</label>
             <input type="text" name="name" placeholder="personaje...">
@@ -22,23 +22,23 @@
 
             <input type="submit" value="Buscar">
         </form>
-    </div>
+    </div> --}}
     <ul class="list-items">
         <li>
             <a class="create-button" href="/api/{{type}}/create">+</a>
         </li>
-        {{#each characters}}
+        {{#each pelis}}
         <li class="card-character">
-            <h2>{{nombre}}</h2>
+            <h2>{{titulo}}</h2>
             <img src={{imagen}} alt="">
+            <b>{{fecha_de_creacion}}</b>
             <div class="card-buttons">
-                <a href="/api/characters/read/{{id}}">+info</a>
-                <a style="background-color:red" href="/api/characters/delete/{{id}}">BORRAR</a>
+                <a href="/api/movies/read/{{id}}">+info</a>
+                <a style="background-color:red" href="/api/movies/delete/{{id}}">BORRAR</a>
             </div>
 
         </li>
         {{/each}}
     </ul>
-
-    <a href="/api/movies">ir a pelis</a>
+    <a href="/api/characters">ir a personajes</a>
 </div>

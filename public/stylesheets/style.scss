@@ -25,6 +25,11 @@ a {
     width: 100%;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+}
+
 .content {
     width: 100%;
     text-align: center;
@@ -39,21 +44,60 @@ a {
 
     }
 
-    ul {
-        li {
-            list-style: none;
-            background-color: #00B7FF;
-            padding: 0.5rem 1rem;
-            border-radius: 10px;
-            margin: 1rem;
-
-            a {
-                color: white;
-                font-weight: bold;
-            }
-        }
-
+    .list-items {
         display: flex;
         flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 80%;
+        margin: 0 auto;
+        flex-wrap: wrap;
+
+        .card-character {
+            display: flex;
+            flex-direction: column;
+            background-color: #c5c5c5;
+            padding: 1rem;
+            border-radius: 10px;
+            align-items: center;
+            justify-content: space-between;
+            width: 300px;
+            height: 300px;
+            margin: 1rem;
+
+            img {
+                width: 200px;
+                max-height: 250px;
+                object-fit: contain;
+            }
+
+            .card-buttons {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                justify-content: space-between;
+
+                a {
+                    background-color: #00B7FF;
+                    padding: 0.5rem;
+                    border-radius: 10px;
+                    color: white;
+                    text-decoration: none;
+
+                }
+            }
+        }
     }
+}
+
+.create-button {
+    background-color: #00B7FF;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding: 1rem;
+    border-radius: 50%;
+    margin: 1rem auto;
+    width: 200px;
+    text-align: center;
 }
