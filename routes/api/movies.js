@@ -38,10 +38,28 @@ app.get('/read/:id', async (req, res) => {
     })
 })
 app.get('/create', async (req, res) => {
-    res.render('create', {
+    res.render('createPelicula', {
         title: 'Crear Pelicula',
         type: 'movies'
     })
+})
+app.post('/create', async (req, res) => {
+    let {
+        titulo,
+        imagen,
+        fecha_de_creacion,
+        calificacion
+    } = req.body;
+    let newMovie = await pelisdb.create({
+        titulo,
+        imagen,
+        fecha_de_creacion,
+        calificacion,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    });
+    res.redirect('../movies');
+
 })
 app.get('/update/:id', async (req, res) => {
 
