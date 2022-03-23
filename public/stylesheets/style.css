@@ -134,6 +134,28 @@ form {
   text-decoration: none;
 }
 
+.mainmenu ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.mainmenu ul li {
+  list-style: none;
+  background-color: #00B7FF;
+  padding: 0.5rem;
+  border-radius: 10px;
+  margin: 1rem;
+}
+
+.mainmenu ul li a {
+  color: white;
+}
+
 .create-button {
   background-color: #00B7FF;
   color: white;

@@ -4,9 +4,7 @@ const {
 } = require('express/lib/response');
 let app = express.Router();
 let jsonwebtoken = require('jsonwebtoken');
-let LocalStorage = require('node-localstorage').LocalStorage;
-
-let localStorage = new LocalStorage('./scratch');
+let cookies = require('cookie-parser');
 const {
     userdb
 } = require('../../db');
@@ -29,7 +27,7 @@ app.post('/', async (req, res) => {
             expiresIn: '1h'
         })
 
-        localStorage.setItem('token', token);
+        res.cookie('token', token);
         res.redirect('/../api/characters');
 
     } else {

@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var jsonwebtoken = require('jsonwebtoken');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -23,6 +25,7 @@ var app = express();
 require('./db');
 
 
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -35,12 +38,28 @@ app.use(express.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+let secured = async (req, res, next) => {
+  try {
+    let token = req.cookies.token;
+
+    if (token) {
+      let payload = jsonwebtoken.verify(token, 'secretcodesh');
+      req.user = payload;
+
+      next();
+    }
+  } catch (error) {
+    console.log(error + "falta token")
+  }
+}
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/disney', disneyRouter);
 app.use('/auth', authRouter);
-app.use('/api/characters', CharacterRouter);
-app.use('/api/movies', moviesRouter);
+app.use('/api/characters', secured, CharacterRouter);
+app.use('/api/movies', secured, moviesRouter);
 
 
 

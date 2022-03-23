@@ -1,5 +1,5 @@
 let express = require('express');
-const async = require('hbs/lib/async');
+
 let app = express.Router();
 const {
     pelisdb
